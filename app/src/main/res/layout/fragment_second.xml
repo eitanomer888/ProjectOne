@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentSecond"
+    android:orientation="vertical"
+    android:background="#E67D7D">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sv1">
+
+        <TableLayout
+            android:id="@+id/tbLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:id="@+id/tr0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:text="נעשה"
+                    android:gravity="center"
+                    android:textSize="25dp"
+                    />
+
+                <TextView
+                    android:layout_weight="4"
+                    android:text="מוצר"
+                    android:gravity="center"
+                    android:textSize="25dp"
+                    />
+
+            </TableRow>
+
+
+
+
+
+        </TableLayout>
+
+
+
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondActivity"
+    android:background="#E67D7D">
+
+    <Button
+        android:id="@+id/btnB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="חזור"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="238dp"
+        android:layout_height="390dp"
+        android:layout_marginTop="28dp"
+        android:text="סל חכם הוא התשובה לצרכי היומיום שלנו חכמה ופשוטה. החברה מספקת אפליקציה ייחודית שמשלבת בין טכנולוגיה ובינה מלאכותית ליצור חווית קניות יעילה ונעימה. אתה זה פותח את האפליקציה, היא באופן אוטומטי את הפריטים נמצאים בביתך ויצואת מזון שאתה אוהב. השבוע, היא מבצעת ניתוח חשיבתי של צרכיך ומציעה לך רשימת קניות מותאמת אישית.
+
+אם יש לך ספקים מועדפים או תדריך תזונתי מסויימת, האפליקציה תקנה ותפעילה את המידע הזה כדי להציע את הפריטים המתאימים ביותר. כאשר אתה בחוץ בדרך לחנות, אתה יכול לגשת לאפליקציה ולראות רשימת הקניות שלך, אתה יכול להיכנס ולצאת מהר לשכוח דבר."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
