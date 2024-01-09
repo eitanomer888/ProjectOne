@@ -26,6 +26,7 @@ public class FragmentFirst extends Fragment{
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private MyDatabaseHelper myDatabaseHelper;
 
     public FragmentFirst() {
         // Required empty public constructor
@@ -68,6 +69,7 @@ public class FragmentFirst extends Fragment{
 
         etName = view.findViewById(R.id.etName);
         btn1 = view.findViewById(R.id.btn1);
+        myDatabaseHelper = new MyDatabaseHelper(getActivity());
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,19 +78,10 @@ public class FragmentFirst extends Fragment{
                 {
                     etName.setText("");
 
-                    Bundle bundle = new Bundle();
-                    bundle.putString("key",str);
                     FragmentSecond fs = new FragmentSecond();
-                    fs.setArguments(bundle);
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fr2,fs).commit();
 
-
-
-
-
-
-
-
+                   myDatabaseHelper.addBook(str);
 
                 }
             }

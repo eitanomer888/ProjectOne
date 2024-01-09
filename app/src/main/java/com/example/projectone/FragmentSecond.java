@@ -1,5 +1,6 @@
 package com.example.projectone;
 
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Path;
 import android.os.Bundle;
@@ -43,8 +44,8 @@ public class FragmentSecond extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private MyDatabaseHelper myDatabaseHelper;
 
-    public static List<String> list = new LinkedList<>();
 
     TableLayout tbLay;
     TableRow tr0;
@@ -85,18 +86,26 @@ public class FragmentSecond extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_second, container, false);
 
+        myDatabaseHelper = new MyDatabaseHelper(getActivity());
+
+
         tbLay = view.findViewById(R.id.tbLay);
         tr0 = view.findViewById(R.id.tr0);
 
-        Bundle bundle = this.getArguments();
-        if(bundle != null)
-        {
-            String str = bundle.getString("key");
-            list.add(str);
-            tbLay.removeView(tr0);
-            Addy();
-        }
+        Cursor cursor = myDatabaseHelper.readAllData();
 
+
+        if(cursor != null)
+        {
+            int n = cursor.getCount();
+            cursor.moveToFirst();
+            for (int i = 0; i < n; i++)
+            {
+                String str = cursor.getString(1);
+                Addy(str);
+                cursor.moveToNext();
+            }
+        }
 
 
 
@@ -111,11 +120,8 @@ public class FragmentSecond extends Fragment {
 
 
 
-    public void Addy()
+    public void Addy(String s)
     {
-
-        for (int i = 0; i < list.size(); i++)
-        {
             TableRow row = new TableRow(requireActivity());
             row.setLayoutParams(new TableRow.LayoutParams(-1, -2));
             row.setGravity(17);
@@ -126,12 +132,13 @@ public class FragmentSecond extends Fragment {
             CheckBox cb = new CheckBox(requireActivity());
             TableRow.LayoutParams Params1 = new TableRow.LayoutParams();
             TableRow.LayoutParams Params2 = new TableRow.LayoutParams();
-            Params1.weight = 4;
-            Params2.weight = 1;
+            Params1.weight = 5;
+            Params2.weight = 2;
+            Params2.gravity = Gravity.CENTER;
 
 
 
-            txt.setText(list.get(i));
+            txt.setText(s);
             txt.setTextColor(getResources().getColor(R.color.black));
             txt.setTextSize(20);
             txt.setGravity(Gravity.CENTER);
@@ -156,7 +163,6 @@ public class FragmentSecond extends Fragment {
             row.addView(cb);
             row.addView(txt);
             tbLay.addView(row);
-        }
     }
 
 

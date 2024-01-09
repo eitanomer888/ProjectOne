@@ -21,6 +21,7 @@
 
     <EditText
         android:id="@+id/etName"
+        android:maxLength="20"
         android:layout_width="210dp"
         android:layout_height="45dp"
         android:layout_marginStart="48dp"
